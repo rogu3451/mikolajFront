@@ -1,0 +1,17 @@
+<div class="container">
+    <h2> Wylosowana osoba to:</h2>
+
+    <p style="color: greenyellow">{{model.name}} {{model.surname}}</p>
+
+  <div class="form-group">
+    <label for="letter">List tej osoby do Świętego Mikołaja:</label>
+    <ng-container *ngIf="model.letter == '' || model.letter == null">
+      <textarea class="form-control" id="letter" rows="15" name="letter" placeholder="Ta osoba nie brała jeszcze udziału w losowaniu. Sprawdź ponownie później. Wystarczy, że podasz swoje imie i kod ponieważ list już został wysłany."></textarea>
+    </ng-container>
+    <ng-container *ngIf="model.letter != '' && model.letter != null">
+      <textarea class="form-control" id="letter" rows="15 " name="letter" placeholder="{{model.letter}}"></textarea>
+    </ng-container>
+  </div>
+
+   <button style="margin-top: 10px; margin-left: 35vw" type="button" class="btn btn-success" [routerLink]="['/losowanie']" >Powrót</button>
+</div>
